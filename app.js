@@ -1,27 +1,42 @@
 const express = require('express');
-const bodyParser = require('body-parser'); // Este módulo me ayuda a manejar los datos enviados desde los formularios HTML.
-const path = require('path'); // Este módulo me ayuda a trabajar con rutas de archivos y directorios.
-const morgan = require('morgan'); // Importe morgan
+const bodyParser = require('body-parser');
+const path = require('path');
+const morgan = require('morgan');
+const connectDB = require('./db'); // Importa la función para conectar a MongoDB
+const cargarProductos = require('./cargarProductos'); // Importa la función cargarProductos
+const Producto = require('./models/producto'); // Importa el modelo de Producto
 
 // Inicializo Express
-const app = express(); // Inicializo Express y lo guardo en la variable 'app'.
+const app = express();
 
-// Configuro EJS como motor de plantillas
-app.set('view engine', 'ejs'); // Configuro Express para usar EJS como motor de plantillas.
-app.set('views', path.join(__dirname, 'views')); // Configuro la carpeta donde se encuentran mis vistas.
-
-// Middleware para el manejo de datos JSON y formularios
-app.use(bodyParser.json()); // Aplico el middleware bodyParser para manejar datos JSON.
-app.use(bodyParser.urlencoded({ extended: true })); // Aplico el middleware bodyParser para manejar datos de formularios HTML.
-app.use(morgan('dev')); // Aplico el middleware Morgan para el registro de solicitudes HTTP en modo de desarrollo
-
-// Defino las rutas
-app.get('/', (req, res) => { // Defino una ruta para la página de inicio ('/'). Cuando un usuario visita esta ruta, se ejecuta esta función.
-  res.render('index'); // Respondo a la solicitud renderizando la vista 'index.ejs' y enviándola al cliente.
+// Conectar a MongoDB
+connectDB().then(() => {
+  // Cargar productos después de conectar a la base de datos
+  cargarProductos();
 });
 
-// Puerto de nescucha del servidor
-const PORT = process.env.PORT || 3000; // Configuro el puerto en el que mi servidor escuchará las solicitudes.
-app.listen(PORT, () => { // Hago que mi servidor escuche en el puerto especificado.
-  console.log(`Servidor en funcionamiento en http://localhost:${PORT}`); // Imprimo un mensaje en la consola para indicar que el servidor está en funcionamiento.
+// Configuro EJS como motor de plantillas
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+
+// Middleware para el manejo de datos JSON y formularios
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(morgan('dev'));
+
+// Defino las rutas
+app.get('/', async (req, res) => {
+  try {
+    const productos = await Producto.find(); // Obtiene todos los productos desde la base de datos
+    res.render('index', { productos }); // Renderiza la vista 'index.ejs' y envía los productos
+  } catch (err) {
+    console.error('Error al obtener productos', err);
+    res.status(500).send('Error al obtener productos');
+  }
+});
+
+// Puerto de escucha del servidor
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Servidor en funcionamiento en http://localhost:${PORT}`);
 });

@@ -1,0 +1,46 @@
+[
+    {
+      "id": 1,
+      "nombre": "Pan Francés",
+      "descripcion": "Pan crujiente y dorado, ideal para el desayuno.",
+      "precio": 50,
+      "imagen": "pan_frances.jpg",
+      "admin": false
+    },
+    {
+      "id": 2,
+      "nombre": "Medialuna",
+      "descripcion": "Deliciosa medialuna de manteca, perfecta para acompañar el café.",
+      "precio": 30,
+      "imagen": "medialuna.jpg"
+    },
+    {
+      "id": 3,
+      "nombre": "Pan Integral",
+      "descripcion": "Pan saludable hecho con harina integral.",
+      "precio": 55,
+      "imagen": "pan_integral.jpg"
+    },
+    {
+      "id": 4,
+      "nombre": "Facturas",
+      "descripcion": "Variedad de facturas de manteca y dulce.",
+      "precio": 25,
+      "imagen": "facturas.jpg"
+    },
+    {
+      "id": 5,
+      "nombre": "Tarta de Frutilla",
+      "descripcion": "Tarta de crema y frutillas frescas.",
+      "precio": 120,
+      "imagen": "tarta_frutilla.jpg"
+    },
+    {
+      "id": 6,
+      "nombre": "Bizcochos",
+      "descripcion": "Bizcochos salados ideales para la merienda.",
+      "precio": 20,
+      "imagen": "bizcochos.jpg"
+    }
+  ]
+  
