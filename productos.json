@@ -1,46 +1,72 @@
 [
-    {
-      "id": 1,
-      "nombre": "Pan Francés",
-      "descripcion": "Pan crujiente y dorado, ideal para el desayuno.",
-      "precio": 50,
-      "imagen": "pan_frances.jpg",
-      "admin": false
-    },
-    {
-      "id": 2,
-      "nombre": "Medialuna",
-      "descripcion": "Deliciosa medialuna de manteca, perfecta para acompañar el café.",
-      "precio": 30,
-      "imagen": "medialuna.jpg"
-    },
-    {
-      "id": 3,
-      "nombre": "Pan Integral",
-      "descripcion": "Pan saludable hecho con harina integral.",
-      "precio": 55,
-      "imagen": "pan_integral.jpg"
-    },
-    {
-      "id": 4,
-      "nombre": "Facturas",
-      "descripcion": "Variedad de facturas de manteca y dulce.",
-      "precio": 25,
-      "imagen": "facturas.jpg"
-    },
-    {
-      "id": 5,
-      "nombre": "Tarta de Frutilla",
-      "descripcion": "Tarta de crema y frutillas frescas.",
-      "precio": 120,
-      "imagen": "tarta_frutilla.jpg"
-    },
-    {
-      "id": 6,
-      "nombre": "Bizcochos",
-      "descripcion": "Bizcochos salados ideales para la merienda.",
-      "precio": 20,
-      "imagen": "bizcochos.jpg"
-    }
-  ]
-  
+  {
+    "id": 1,
+    "nombre": "Pan Francés",
+    "descripcion": "Pan crujiente y dorado, ideal para el desayuno.",
+    "precio": 50,
+    "imagen": "pan_frances.jpg"
+  },
+  {
+    "id": 2,
+    "nombre": "Medialuna",
+    "descripcion": "Deliciosa medialuna de manteca, perfecta para acompañar el café.",
+    "precio": 30,
+    "imagen": "medialuna.jpg"
+  },
+  {
+    "id": 3,
+    "nombre": "Pan Integral",
+    "descripcion": "Pan saludable hecho con harina integral.",
+    "precio": 55,
+    "imagen": "pan_integral.jpg"
+  },
+  {
+    "id": 4,
+    "nombre": "Facturas",
+    "descripcion": "Variedad de facturas de manteca y dulce.",
+    "precio": 25,
+    "imagen": "facturas.jpg"
+  },
+  {
+    "id": 5,
+    "nombre": "Tarta de Frutilla",
+    "descripcion": "Tarta de crema y frutillas frescas.",
+    "precio": 120,
+    "imagen": "tarta_frutilla.jpg"
+  },
+  {
+    "id": 6,
+    "nombre": "Bizcochos",
+    "descripcion": "Bizcochos salados ideales para la merienda.",
+    "precio": 20,
+    "imagen": "bizcochos.jpg"
+  },
+  {
+    "id": 7,
+    "nombre": "Croissant",
+    "descripcion": "Croissant de mantequilla, perfecto para el desayuno.",
+    "precio": 40,
+    "imagen": "croissant.jpg"
+  },
+  {
+    "id": 8,
+    "nombre": "Pan de Chocolate",
+    "descripcion": "Pan dulce relleno de chocolate.",
+    "precio": 60,
+    "imagen": "pan_chocolate.jpg"
+  },
+  {
+    "id": 9,
+    "nombre": "Galletas",
+    "descripcion": "Galletas caseras con chispas de chocolate.",
+    "precio": 35,
+    "imagen": "galletas.jpg"
+  },
+  {
+    "id": 10,
+    "nombre": "Donuts",
+    "descripcion": "Donuts glaseadas con varios sabores.",
+    "precio": 45,
+    "imagen": "donuts.jpg"
+  }
+]

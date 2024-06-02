@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Panadería</title>
-  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
   <h1>Productos de la Panadería</h1>
   <div class="productos">
     <% productos.forEach(producto => { %>
       <div class="producto">
-        <img src="<%= producto.imagen %>" alt="<%= producto.nombre %>">
+        <img src="/images/<%= producto.imagen %>" alt="<%= producto.nombre %>">
         <h2><%= producto.nombre %></h2>
         <p><%= producto.descripcion %></p>
         <p>Precio: $<%= producto.precio %></p>
+        <form action="/add-to-cart" method="POST">
+          <input type="hidden" name="productoId" value="<%= producto.id %>">
+          <button type="submit">Agregar al Carrito</button>
+        </form>
       </div>
     <% }); %>
   </div>
