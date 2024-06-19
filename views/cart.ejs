@@ -5,22 +5,95 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Carrito de Compras</title>
   <link rel="stylesheet" href="/css/styles.css">
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 10px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    .cart-actions {
+      display: flex;
+      gap: 5px;
+    }
+    .total {
+      font-weight: bold;
+    }
+    .buttons {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+    }
+  </style>
 </head>
 <body>
+  
+  <%- include('partials/navbar') %>
+
   <h1>Carrito de Compras</h1>
-  <div class="productos">
-    <% carrito.forEach(item => { %>
-      <div class="producto">
-        <img src="/images/<%= item.producto.imagen %>" alt="<%= item.producto.nombre %>">
-        <h2><%= item.producto.nombre %></h2>
-        <p><%= item.producto.descripcion %></p>
-        <p>Precio: $<%= item.producto.precio %></p>
-        <p>Cantidad: <%= item.cantidad %></p>
-      </div>
-    <% }); %>
-  </div>
-  <form action="/checkout" method="POST">
-    <button type="submit">Finalizar Compra</button>
-  </form>
+
+  <% if (cart.length > 0) { %>
+    <table>
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Cantidad</th>
+          <th>Precio Unitario</th>
+          <th>Precio Total</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% let totalPrice = 0; %>
+        <% cart.forEach(item => { %>
+          <% let itemTotal = item.quantity * item.product.precio; %>
+          <% totalPrice += itemTotal; %>
+          <tr>
+            <td><%= item.product.nombre %></td>
+            <td><%= item.quantity %></td>
+            <td>$<%= item.product.precio %></td>
+            <td>$<%= itemTotal %></td>
+            <td>
+              <div class="cart-actions">
+                <form action="/add-to-cart" method="POST" style="display:inline;">
+                  <input type="hidden" name="productoId" value="<%= item.product.id %>">
+                  <input type="hidden" name="quantity" value="1">
+                  <button type="submit">+</button>
+                </form>
+                <form action="/remove-from-cart" method="POST" style="display:inline;">
+                  <input type="hidden" name="productoId" value="<%= item.product.id %>">
+                  <input type="hidden" name="quantity" value="1">
+                  <button type="submit">-</button>
+                </form>
+              </div>
+            </td>
+          </tr>
+        <% }); %>
+        <tr>
+          <td colspan="3" class="total">Total:</td>
+          <td class="total">$<%= totalPrice %></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="buttons">
+      <form action="/checkout" method="POST">
+        <button type="submit">Finalizar Compra</button>
+      </form>
+      <form action="/cart" method="POST">
+        <button type="submit">Vaciar Carrito</button>
+      </form>
+    </div>
+  <% } else { %>
+    <p>El carrito está vacío</p>
+  <% } %>
+
 </body>
 </html>

@@ -7,7 +7,11 @@
   <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
+  
+  <%- include('partials/navbar') %>
+
   <h1>Productos de la Panadería</h1>
+
   <div class="productos">
     <% productos.forEach(producto => { %>
       <div class="producto">
@@ -17,7 +21,8 @@
         <p>Precio: $<%= producto.precio %></p>
         <form action="/add-to-cart" method="POST">
           <input type="hidden" name="productoId" value="<%= producto.id %>">
-          <button type="submit">Agregar al Carrito</button>
+          <input type="number" name="quantity" value="1" min="1">
+          <button type="submit">Agregar al carrito</button>
         </form>
       </div>
     <% }); %>
