@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Panadería</title>
+  <title>Favoritos</title>
   <link rel="stylesheet" href="/css/styles.css"> <!-- archivo CSS -->
 </head>
 <body>
   
   <%- include('partials/navbar') %> <!-- Renderiza la barra de navegación -->
 
-  <h1>Productos de la Panadería</h1>
+  <h1>Mis Favoritos</h1>
 
   <div class="productos">
     <% productos.forEach(producto => { %>
@@ -20,8 +20,7 @@
         <p><%= producto.descripcion %></p>
         <p>Precio: $<%= producto.precio %></p>
         <form action="/add-to-cart" method="POST">
-          <!-- Usar solo el ID como cadena -->
-          <input type="hidden" name="productoId" value="<%= producto.id %>"> 
+          <input type="hidden" name="productoId" value="<%= producto.id %>">
           <button type="submit">Agregar al carrito</button>
         </form>
         <% if (user) { %>

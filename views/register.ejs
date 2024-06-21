@@ -1,24 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Registro</title>
-  <link rel="stylesheet" href="/css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <link rel="stylesheet" href="/styles.css"> <!-- Asegúrate de tener un archivo de estilos globales -->
+    <style>
+        /* Estilos específicos para la página de registro */
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        form div {
+            margin-bottom: 15px;
+        }
+        input[type="text"],
+        input[type="password"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .login-link {
+            margin-top: 20px;
+            display: inline-block;
+            text-decoration: none;
+            color: #28a745;
+        }
+        .login-link:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-  <%- include('partials/navbar') %> <!-- render partial navbar -->
-  <h1>Registro</h1>
-  <form action="/register" method="POST">
-    <div>
-      <label for="username">Usuario:</label>
-      <input type="text" id="username" name="username" required>
+    <div class="container">
+        <h1>Registro</h1>
+
+        <form action="/register" method="POST">
+            <div>
+                <label for="username">Usuario:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div>
+                <label for="password">Contraseña:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit">Registrarse</button>
+        </form>
+
+        <a class="login-link" href="/login">¿Ya tienes cuenta? Inicia sesión</a>
     </div>
-    <div>
-      <label for="password">Contraseña:</label>
-      <input type="password" id="password" name="password" required>
-    </div>
-    <button type="submit">Registrar</button>
-  </form>
 </body>
 </html>

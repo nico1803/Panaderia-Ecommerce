@@ -1,8 +1,9 @@
 <nav>
   <ul>
     <li><a href="/">Inicio</a></li>
-    <li><a href="/cart">Carrito</a></li>
-    <% if (user) { %>
+    <li><a href="/cart">Carrito (<%= locals.cart ? locals.cart.length : 0 %>)</a></li>
+    <% if (locals.user) { %>
+      <li><a href="/favorites">Favoritos (<%= locals.user.favorites.length %>)</a></li>
       <li><a href="/logout">Cerrar Sesión</a></li>
     <% } else { %>
       <li><a href="/login">Iniciar Sesión</a></li>
