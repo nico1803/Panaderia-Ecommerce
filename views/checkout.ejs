@@ -4,25 +4,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Checkout</title>
-  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/styles.css"> <!-- archivo CSS -->
 </head>
 <body>
   <%- include('partials/navbar') %>
-  <h1>Checkout</h1>
-  <form action="/checkout" method="POST">
-    <div>
-      <label for="address">Dirección:</label>
-      <input type="text" id="address" name="address" required>
-    </div>
-    <div>
-      <label for="payment">Método de Pago:</label>
-      <select id="payment" name="payment" required>
-        <option value="credit_card">Tarjeta de Crédito</option>
-        <option value="paypal">PayPal</option>
-        <option value="bank_transfer">Transferencia Bancaria</option>
-      </select>
-    </div>
-    <button type="submit">Realizar Compra</button>
-  </form>
+  <div class="container">
+    <h1>Checkout</h1>
+    <form action="/checkout" method="POST">
+      <div>
+        <label for="address">Dirección:</label>
+        <input type="text" id="address" name="address" required>
+      </div>
+      <div>
+        <label for="payment">Método de Pago:</label>
+        <select id="payment" name="payment" required>
+          <option value="credit_card">Tarjeta de Crédito</option>
+          <option value="paypal">PayPal</option>
+          <option value="bank_transfer">Transferencia Bancaria</option>
+        </select>
+      </div>
+      <button type="submit">Realizar Compra</button>
+    </form>
+  </div>
 </body>
 </html>

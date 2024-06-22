@@ -1,54 +1,50 @@
-# Panaderia-Ecommerce
-proyecto final de https://sceu.frba.utn.edu.ar/course/programador-web-avanzado/
+# E-commerce de Panadería
 
-¡ Hola !
-
-Este es mi proyecto final de programación, donde desarrollé un e-commerce para una panadería utilizando tecnologías de back-end y front-end. Aquí tienes una descripción detallada del proyecto:
+Bienvenidos al proyecto de E-commerce para una panadería. Este proyecto fue desarrollado como parte del Trabajo Práctico Final, utilizando tecnologías tanto del lado del servidor (back-end) como del cliente (front-end). A continuación, se detallan las funcionalidades implementadas, los requisitos técnicos y las instrucciones para ejecutar el proyecto.
 
 ## Descripción General
 
-Desarrollé un e-commerce para una panadería que permite a los usuarios visualizar productos, agregar productos al carrito de compras y completar la compra. También implementé funcionalidades adicionales como registro y login de usuarios, y un listado de productos favoritos.
+Este proyecto es una aplicación web para una panadería, que permite a los usuarios visualizar una lista de productos, agregar productos a un carrito de compras, y completar una compra. Además, incluye funcionalidades adicionales como el registro y login de usuarios, y un sistema de favoritos para mejorar la experiencia del usuario.
 
-## Tecnologías Utilizadas
+## Funcionalidades
 
-- Node.js y Express para el servidor backend.
-- EJS (Embedded JavaScript) para la renderización de vistas en el frontend.
-- MongoDB como base de datos para almacenar información de productos y usuarios.
+### Funcionalidades Básicas
 
-## Pasos Realizados
+1. **Definición de Productos**:
+   - Los productos de la panadería están definidos en un archivo JSON (`productos.json`), que contiene información detallada como el ID, nombre, descripción, precio y URL de la imagen de cada producto.
 
-### Paso 1: Cloné el Repositorio
+2. **Proyecto en Node.js**:
+   - Utilicé Node.js para desarrollar el servidor del proyecto.
+   - La información del archivo JSON se lee y se inserta en una base de datos MongoDB utilizando MongoDB Compass.
 
-Utilicé el comando `git clone` para clonar el repositorio en mi máquina local y así poder trabajar en el proyecto.
+3. **Renderización de Productos**:
+   - Los productos se renderizan en el DOM utilizando EJS.
+   - Se aplicaron estilos CSS para asegurar una buena presentación visual de los productos.
 
-### Paso 2: Inicialicé el Proyecto con npm
+4. **Carrito de Compras**:
+   - Implementé un carrito de compras donde los usuarios pueden agregar productos.
+   - Al finalizar la compra, se muestra un mensaje de "Compra hecha con éxito".
 
-Usé `npm init -y` para inicializar el proyecto y crear el archivo `package.json` con la configuración básica del proyecto.
+### Funcionalidades Adicionales
 
-### Paso 3: Creé la Estructura del Proyecto
+5. **Registro y Login**:
+   - Implementé un sistema de registro y login para que los usuarios puedan acceder al e-commerce.
+   - Las contraseñas se encriptan utilizando bcrypt y las sesiones se manejan con express-session.
 
-Organicé el proyecto creando la estructura de carpetas y archivos necesarios para el desarrollo del e-commerce.
+6. **Listado de Favoritos**:
+   - Los usuarios pueden agregar productos a un listado de favoritos.
+   - El listado de favoritos se muestra en una página separada.
 
-### Paso 4: Configuré Express para EJS
+## Instrucciones para Ejecutar el Proyecto
 
-Configuré Express para renderizar vistas utilizando EJS como motor de plantillas, permitiendo así la generación dinámica de HTML.
+### Requisitos Previos
 
-### Paso 5: Creé la Vista de la Página de Inicio
+- Node.js y npm instalados en el sistema.
+- MongoDB instalado y configurado en el sistema o en un servicio de MongoDB en la nube.
 
-Desarrollé la vista `index.ejs`, que muestra el listado de productos de la panadería y permite a los usuarios agregar productos al carrito de compras.
+### Pasos para Configurar y Ejecutar el Proyecto
 
-## Pasos Futuros
-
-- Implementar la funcionalidad de registro y login de usuarios.
-- Permitir a los usuarios agregar productos a una lista de favoritos.
-- Mejorar la interfaz de usuario con estilos CSS adicionales.
-- Agregar cualquier otra funcionalidad adicional que complejice y mejore la página.
-
-## Entregables
-
-El código fuente del proyecto está disponible en este repositorio de GitHub. Se proporcionan instrucciones detalladas en el README.md sobre cómo ejecutar el proyecto.
-
-¡Gracias por revisar mi proyecto!
-
-Saludos,
-Nico
+1. **Clonar el Repositorio**:
+   ```bash
+   git clone https://github.com/tu-usuario/ecommerce-panaderia.git
+   cd ecommerce-panaderia

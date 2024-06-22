@@ -1,84 +1,218 @@
-/* public/css/styles.css */
-
+/* Estilos generales */
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Arial', sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f8f8f8;
+  background-color: #f8f9fa;
+  color: #333;
 }
 
+.container {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #343a40;
+  padding: 1rem;
+}
+
+.navbar-list {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-item {
+  margin: 0 10px;
+}
+
+.navbar-link {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.1rem;
+}
+
+.navbar-link:hover {
+  text-decoration: underline;
+}
+
+/* Página de inicio */
 h1 {
   text-align: center;
-  margin: 20px 0;
+  margin-top: 20px;
+  color: #343a40;
 }
 
 .productos {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding: 20px;
+  gap: 20px;
 }
 
 .producto {
-  background-color: white;
+  background-color: #fff;
   border: 1px solid #ddd;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  margin: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   padding: 20px;
+  width: 280px; /* Ajuste el ancho de las tarjetas */
   text-align: center;
-  width: 200px;
+  transition: transform 0.2s;
+  display: flex;
+  flex-direction: column;
+}
+
+.producto:hover {
+  transform: scale(1.05);
 }
 
 .producto img {
   width: 100%;
-  height: 150px; /* Altura fija para las imágenes */
-  object-fit: cover; /* Para asegurarse de que la imagen se ajuste al cuadro */
-  border-radius: 5px;
+  height: 150px;
+  object-fit: cover;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.producto .contenido {
+  flex: 1; /* Ocupa el espacio restante */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .producto h2 {
-  font-size: 18px;
   margin: 10px 0;
+  font-size: 1.2rem;
+  color: #343a40;
 }
 
 .producto p {
-  color: #555;
+  margin: 10px 0;
+  color: #666;
 }
 
-.producto p:last-child {
+.producto .precio {
   font-weight: bold;
-  color: #333;
 }
 
-/* Estilos para el navbar */
-
-nav {
-  background-color: #333;
-  overflow: hidden;
+.producto .acciones {
+  margin-top: auto;
 }
 
-nav ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center; /* Centra los elementos del navbar */
-}
-
-nav ul li {
-  float: left;
-}
-
-nav ul li a {
-  display: block;
+.producto button {
+  padding: 10px 20px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #28a745;
   color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-nav ul li a:hover {
-  background-color: #ddd;
-  color: black;
+.producto button:hover {
+  background-color: #218838;
+}
+
+/* Favoritos */
+.favorite-button {
+  background-color: #ffc107;
+  margin-top: 10px;
+}
+
+.favorite-button:hover {
+  background-color: #e0a800;
+}
+
+/* Formularios */
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+.form-box {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.form-box h2 {
+  margin-bottom: 20px;
+}
+
+.form-box input[type="text"],
+.form-box input[type="password"],
+.form-box input[type="email"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.form-box button {
+  width: 100%;
+  padding: 10px;
+  background-color: #28a745;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.form-box button:hover {
+  background-color: #218838;
+}
+
+/* Mensaje de error */
+.error-message {
+  color: red;
+  margin-bottom: 20px;
+}
+
+/* Enlace de registro */
+.register-link {
+  margin-top: 20px;
+  display: inline-block;
+  text-decoration: none;
+  color: #007bff;
+}
+
+.register-link:hover {
+  text-decoration: underline;
+}
+
+/* Enlace de inicio de sesión */
+.login-link {
+  margin-top: 20px;
+  display: inline-block;
+  text-decoration: none;
+  color: #28a745;
+}
+
+.login-link:hover {
+  text-decoration: underline;
+}
+
+/* Estrella de favoritos */
+.favorite-button {
+  background-color: #ffc107;
+  margin-top: 10px;
+  align-self: center;
+}
+
+.favorite-button:hover {
+  background-color: #e0a800;
 }

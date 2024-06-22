@@ -3,7 +3,8 @@ const bcrypt = require('bcrypt');
 
 const usuarioSchema = new mongoose.Schema({
   username: { type: String, required: true, unique: true },
-  password: { type: String, required: true }
+  password: { type: String, required: true },
+  favorites: [String]
 });
 
 // Middleware para encriptar la contraseña antes de guardarla
