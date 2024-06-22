@@ -21,7 +21,8 @@
         <p>Precio: $<%= producto.precio %></p>
         <form action="/add-to-cart" method="POST">
           <!-- Usar solo el ID como cadena -->
-          <input type="hidden" name="productoId" value="<%= producto.id %>"> 
+          <input type="hidden" name="productoId" value="<%= producto.id %>">
+          <input type="hidden" name="quantity" value="1">
           <button type="submit">Agregar al carrito</button>
         </form>
         <% if (user) { %>

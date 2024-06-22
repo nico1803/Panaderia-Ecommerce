@@ -4,21 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="/styles.css"> <!-- Asegúrate de tener un archivo de estilos globales -->
+    <link rel="stylesheet" href="/css/styles.css"> <!-- archivo CSS -->
     <style>
         /* Estilos específicos para la página de login */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa; /* Fondo gris claro */
+            color: #333; /* Texto oscuro */
+            font-family: 'Arial', sans-serif;
+        }
         .container {
             max-width: 400px;
-            margin: 0 auto;
             padding: 20px;
             text-align: center;
             border: 1px solid #ddd;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            background-color: #fff;
+            background-color: #fff; /* Fondo blanco */
         }
         h1 {
             margin-bottom: 20px;
+            color: #343a40; /* Texto oscuro */
         }
         form div {
             margin-bottom: 15px;
@@ -27,28 +38,47 @@
         input[type="password"] {
             width: calc(100% - 22px);
             padding: 10px;
-            border: 1px solid #ddd;
+            border: 1px solid #ced4da; /* Borde gris */
             border-radius: 5px;
+            background-color: #fff; /* Fondo blanco */
         }
         button {
+            width: 100%;
             padding: 10px 20px;
             border: none;
             border-radius: 5px;
-            background-color: #28a745;
+            background-color: #007bff; /* Azul */
             color: white;
             cursor: pointer;
+            margin-top: 10px;
         }
         button:hover {
-            background-color: #218838;
+            background-color: #0056b3; /* Azul más oscuro al pasar el mouse */
         }
         .register-link {
+            display: block;
             margin-top: 20px;
-            display: inline-block;
             text-decoration: none;
-            color: #007bff;
+            color: #007bff; /* Azul */
         }
         .register-link:hover {
             text-decoration: underline;
+        }
+        .return-home {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #343a40; /* Gris oscuro */
+            color: white;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .return-home:hover {
+            background-color: #292f36; /* Gris más oscuro al pasar el mouse */
         }
         .error-message {
             color: red;
@@ -57,6 +87,8 @@
     </style>
 </head>
 <body>
+    <a class="return-home" href="/">Volver al Inicio</a>
+
     <div class="container">
         <h1>Iniciar Sesión</h1>
 

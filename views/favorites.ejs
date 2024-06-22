@@ -8,55 +8,31 @@
 </head>
 <body>
   
-  <%- include('partials/navbar') %> <!-- Renderiza la barra de navegación -->
+  <%- include('partials/navbar') %>
 
-  <h1>Mis Favoritos</h1>
+  <div class="container">
+    <h1>Mis Favoritos</h1>
 
-  <div class="productos">
-    <% productos.forEach(producto => { %>
-      <div class="producto">
-        <img src="/images/<%= producto.imagen %>" alt="<%= producto.nombre %>"> <!-- las imágenes carguen correctamente -->
-        <h2><%= producto.nombre %></h2>
-        <p><%= producto.descripcion %></p>
-        <p>Precio: $<%= producto.precio %></p>
-        <form action="/add-to-cart" method="POST">
-          <input type="hidden" name="productoId" value="<%= producto.id %>">
-          <button type="submit">Agregar al carrito</button>
-        </form>
-        <% if (user) { %>
-          <button id="favorite-<%= producto.id %>" onclick="toggleFavorite('<%= producto.id %>')">
-            <%= user.favorites.includes(producto.id.toString()) ? '★' : '☆' %>
-          </button>
-        <% } %>
-      </div>
-    <% }); %>
+    <div class="productos">
+      <% productos.forEach(producto => { %>
+        <div class="producto">
+          <img src="/images/<%= producto.imagen %>" alt="<%= producto.nombre %>">
+          <h2><%= producto.nombre %></h2>
+          <p><%= producto.descripcion %></p>
+          <p>Precio: $<%= producto.precio %></p>
+          <form action="/add-to-cart" method="POST">
+            <input type="hidden" name="productoId" value="<%= producto.id %>">
+            <button type="submit">Agregar al carrito</button>
+          </form>
+          <% if (user) { %>
+            <button id="favorite-<%= producto.id %>" onclick="toggleFavorite('<%= producto.id %>')">
+              <%= user.favorites.includes(producto.id.toString()) ? '★' : '☆' %>
+            </button>
+          <% } %>
+        </div>
+      <% }); %>
+    </div>
   </div>
 
   <script>
-    async function toggleFavorite(productId) {
-      try {
-        const response = await fetch(`/favorites/${productId}`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          }
-        });
-
-        if (response.ok) {
-          const result = await response.json();
-          const starElement = document.getElementById(`favorite-${productId}`);
-          if (result.favorites.includes(productId.toString())) {
-            starElement.textContent = '★';
-          } else {
-            starElement.textContent = '☆';
-          }
-        } else {
-          console.error('Error al actualizar favoritos');
-        }
-      } catch (error) {
-        console.error('Error:', error);
-      }
-    }
-  </script>
-</body>
-</html>
+   

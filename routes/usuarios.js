@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const { body, validationResult } = require('express-validator'); // Importar express-validator
 const Usuario = require('../models/usuario'); // Importar el modelo de Usuario
 const bcrypt = require('bcrypt');
 
@@ -8,15 +9,30 @@ router.get('/register', (req, res) => {
   res.render('register', { user: req.session.user });
 });
 
+// Middleware de validación usando express-validator
+const validateRegister = [
+  body('username').notEmpty().withMessage('El nombre de usuario es obligatorio'),
+  body('password').notEmpty().withMessage('La contraseña es obligatoria'),
+  body('username').custom(async (value) => {
+    // Verificar si el nombre de usuario ya está registrado
+    const existingUser = await Usuario.findOne({ username: value });
+    if (existingUser) {
+      throw new Error('El nombre de usuario ya está en uso');
+    }
+  })
+];
+
 // Ruta para manejar el registro de usuarios
-router.post('/register', async (req, res) => {
+router.post('/register', validateRegister, async (req, res) => {
+  // Extraer los errores de validación de express-validator
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).send(errors.array().map(error => error.msg).join('<br>'));
+  }
+
   try {
     const { username, password } = req.body;
-    // Verificar si ya existe un usuario con el mismo nombre de usuario
-    const existingUser = await Usuario.findOne({ username });
-    if (existingUser) {
-      return res.status(400).send('El nombre de usuario ya está en uso');
-    }
+
     // Crear un nuevo usuario
     const newUser = new Usuario({ username, password });
     await newUser.save();
